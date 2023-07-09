@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.util.*;
+
+public class RemoveDuplicatesFromArray {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter the number of elements in the array");
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        System.out.println("enter the elements of the array");
+        for(int i=0;i<n;i++){
+            System.out.println("enter the element"+(i+1)+":");
+            arr[i]=sc.nextInt();
+        }
+        int[] uniqueArr=removeDuplicates(arr);
+        System.out.println("non-duplicate items:"+Arrays.toString(uniqueArr));
+    }
+    public static int[] removeDuplicates(int[] arr){
+        Set<Integer> set=new LinkedHashSet<>();
+        for(int num:arr){
+            set.add(num);
+        }
+        int[] uniqueArr=new int[set.size()];
+        int i=0;
+        for(int num:set){
+            uniqueArr[i++]=num;
+        }
+        return uniqueArr;
+    }
+}

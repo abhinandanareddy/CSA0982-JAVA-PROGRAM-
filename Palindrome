@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class StringPalindrome {
+    public static void main(String[] args){
+        Scanner sc =new Scanner(System.in);
+        System.out.println("enter the string:-");
+        String value=sc.next();
+        try {
+            int n = Integer.parseInt(value);
+            int rev = 0, rem, n1 = n;
+            while (n != 0) {
+                rem = n % 10;
+                rev = rev * 10 + rem;
+                n = n / 10;
+            }
+            if (n1 == rev)
+                System.out.println("the number is palindrome");
+            else
+                System.out.println("not a palindrome");
+        }
+        catch(Exception e){
+            StringBuffer s1=new StringBuffer(value);
+            s1.reverse();
+            String s2=s1.toString();
+            if(value.equals(s2))
+                System.out.println("the strings are palindrome");
+            else
+                System.out.println("the strings are not  palindrome");
+
+        }
+    }
+}
